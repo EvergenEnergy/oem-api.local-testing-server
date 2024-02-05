@@ -155,7 +155,7 @@ public static String getExampleCommand(String commandType, String deviceId, int 
 
         CloudEvent event = CloudEventBuilder.v1()
                 .withId(uuidString)
-                .withType("com.evergen.energy.solar-battery.command.v1")
+                .withType("com.evergen.energy.battery-inverter.command.v1")
                 .withSource(URI.create("https://evergen.energy"))
                 .withDataContentType("application/json")
                 .withData(payload.getBytes())

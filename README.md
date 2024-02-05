@@ -1,8 +1,8 @@
 # OEM-API testing script
 
-This is an application for recreating the incoming OEM-API commands sent to Evergen's AWS managed SQS server, written in Java. This application allows you to connect to a local commands queue select which of the test input to receive.
+This is an application for performing local intergtaion testing against the commands from Evergen's OEM-API, substituting connecting to Evergen's AWS managed SQS server, for this local SQS server.
 
-This example code has been sourced from the [AWS documentation](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/examples-sqs-messages.html) for interacting with SQS queues in Java.
+This example code has been sourced from the [AWS documentation](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/examples-sqs-messages.html) for interacting with this SQS queues in Java.
 
 ## Getting Started
 
