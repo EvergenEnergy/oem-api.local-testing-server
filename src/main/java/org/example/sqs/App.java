@@ -57,10 +57,8 @@ public class App
         String awsAccessKeyId = "123";
         String awsSecretAccessKey = "123";
 
-        // Create AWS credentials
         BasicAWSCredentials credentials = new BasicAWSCredentials(awsAccessKeyId, awsSecretAccessKey);
 
-        // Create an SQS client
         AmazonSQS sqs = AmazonSQSClient.builder()
                 .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration(queueUrl, "ap-southeast-2"))
                 .withCredentials(new AWSStaticCredentialsProvider(credentials))
@@ -71,19 +69,14 @@ public class App
                     .withAttributeNames("All")
                     .withMaxNumberOfMessages(10)
                     .withMessageAttributeNames("All")
-                    .withWaitTimeSeconds(1); // Adjust the wait time as needed
+                    .withWaitTimeSeconds(1); 
 
             ReceiveMessageResult receiveMessageResult = sqs.receiveMessage(receiveMessageRequest);
 
             for (Message message : receiveMessageResult.getMessages()) {
-                // Handle each message as needed
                 System.out.println("Received message: " + message.getBody());
-
-                // Delete the message from the queue
                 sqs.deleteMessage(queueUrl, message.getReceiptHandle());
             }
-
-        System.exit(0);
    }
 
 public static void connectAndSendCommand(String queueUrl, String payload) {
@@ -310,5 +303,7 @@ public static String getExampleCommand(String commandType, String deviceId, int 
         // test_3_2_commandExpiry(testBatteries);
 
         clearTopic(queueUrl);
+
+        System.exit(0);
     }
 }
