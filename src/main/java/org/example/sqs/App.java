@@ -229,7 +229,7 @@ public static String getExampleCommand(String commandType, String deviceId, int 
     public static void test_1_6_chargePowerRateAttenuation(ArrayList<TestBattery> testBatteries) {
         System.out.println("Running Test 1.6. Charge Power Rate Attenuation");
         for (TestBattery battery : testBatteries) {
-            connectAndSendCommand(battery.queueUrl, getExampleCloudEvent(getExampleCommand("chargeCommand", battery.deviceId, (int) (battery.powerRating * 2))));
+            connectAndSendCommand(battery.queueUrl, getExampleCloudEvent(getExampleCommand("chargeCommand", battery.deviceId, battery.powerRating * 2)));
         }
         sleepXseconds(600);
     }
@@ -237,7 +237,7 @@ public static String getExampleCommand(String commandType, String deviceId, int 
     public static void test_1_7_dischargePowerRateAttenuation(ArrayList<TestBattery> testBatteries) {
         System.out.println("Running Test 1.7. Discharge Power Rate Attenuation");
         for (TestBattery battery : testBatteries) {
-            connectAndSendCommand(battery.queueUrl, getExampleCloudEvent(getExampleCommand("dischargeCommand", battery.deviceId, (int) (battery.powerRating * 2))));
+            connectAndSendCommand(battery.queueUrl, getExampleCloudEvent(getExampleCommand("dischargeCommand", battery.deviceId, battery.powerRating * 2)));
         }
         sleepXseconds(600);
     }
